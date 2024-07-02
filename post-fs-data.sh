@@ -28,17 +28,17 @@ wait_until_boot_complete
 # BATAS SUCI :V
 ##########################################################################################
 
-# DISABLE BLURS
-setprop ro.sf.blurs_are_expensive 0
-setprop ro.sf.blurs_are_caro 1
-setprop ro.miui.has_real_blur 0
-setprop ro.launcher.blur.appLaunch 0
-setprop ro.surface_flinger.supports_background_blur 0
-setprop persist.sys.background_blur_supported false
-setprop persist.sys.sf.disable_blurs true
-setprop enable_blurs_on_windows 0
-setprop disableBlurs true
-setprop disableBackgroundBlur true
+# CLEAR CACHE
+rm -rf /data/data/com.android.systemui/cache/*
+rm -rf /data/data/com.android.systemui/code_cache/*
+rm -rf /data/user_de/0/com.android.systemui/cache/*
+rm -rf /data/user_de/0/com.android.systemui/code_cache/*
+rm -rf /data/user/0/com.android.systemui/cache/*
+rm -rf /data/user/0/com.android.systemui/code_cache/*
 
+# BLURS DISABLE
 su -c cmd window disable-blur 1
 su -c wm disable-blur 1
+
+# OPEN AN APP QUICKLY 
+am start -n com.example no.app/.MainActivity
